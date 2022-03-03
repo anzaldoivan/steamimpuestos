@@ -1,6 +1,7 @@
 let button = $("#btnMain");
 let buttonReset = $("#btnReset");
 let list = $("#list");
+const corsAnywhere = "https://cors-anywhere.herokuapp.com/";
 const dolarAPI = "https://api-dolar-argentina.herokuapp.com";
 const dolarOficial = dolarAPI + "/api/dolaroficial";
 let preciosCalculados = [];
@@ -12,9 +13,13 @@ const saveLocal = (id, value) => {
 };
 
 async function getDolarOficial() {
-  const response = await fetch(dolarOficial);
-  // waits until the request completes...
-  console.log(response.json());
+  const response = await fetch(corsAnywhere + dolarOficial, {
+    method: "GET",
+    headers: new Headers({
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    }),
+  });
   return response.json();
 }
 
@@ -32,7 +37,6 @@ function calcularDescuento(valor) {
 
 function calcularImpuestos(base, descuento, IVA, impuestoPais, retencion) {
   descuento = calcularDescuento(descuento);
-  IVA = calcularPorcentaje(IVA);
   impuestoPais = calcularPorcentaje(impuestoPais);
   retencion = calcularPorcentaje(retencion);
   let total = base * descuento * IVA * impuestoPais * retencion;
@@ -49,12 +53,13 @@ function pedirEntrada(mensaje, valorDefault) {
   return valor;
 }
 
-function calculate() {
+async function calculate() {
   let price = Number(document.getElementById("price").value);
   let discount = Number(document.getElementById("discount").value);
-  let iva = Number(document.getElementById("iva").value);
+  let iva = calcularPorcentaje(Number(document.getElementById("iva").value));
   let taxpais = Number(document.getElementById("taxpais").value);
   let taxretenciones = Number(document.getElementById("taxretenciones").value);
+  let dolarofi = await getDolarOficial();
   let ID = Number(preciosCalculados.length) + 1;
   producto = {
     ID: ID,
@@ -64,20 +69,19 @@ function calculate() {
     impuestoPais: taxpais,
     retencion: taxretenciones,
     total: calcularImpuestos(price, discount, iva, taxpais, taxretenciones),
-    importe: 0,
+    importe: (price * iva) / dolarofi.venta,
   };
   preciosCalculados.push(producto);
   console.log(preciosCalculados);
   saveLocal("productos", JSON.stringify(preciosCalculados));
 }
 
-button.click(function () {
+button.click(async function () {
   contenedor = document.createElement("div");
   console.log("Click");
-  calculate();
+  await calculate();
   console.log(JSON.parse(localStorage.getItem("productos")));
   modificarContenedor(contenedor);
-  getDolarOficial();
 });
 
 buttonReset.click(function () {
@@ -89,10 +93,13 @@ function modificarContenedor() {
   let last = Object.keys(productos).length;
   list.append(
     `<div id="${producto.ID}"><h3>Producto Calculado #${producto.ID}</h3>
-                          <p> Precio Base: ${producto.precioBase}</h3>
+                          <p> Precio Base: ${producto.precioBase}</p>
                           <p>  Descuento: ${producto.descuento}</p>
-                          <b> Precio Total: ${producto.total}</b></div>
-                          <b> Importe en Resumen: ${producto.importe} USD</b></div>`
+                          <p> Importe en Resumen: ${producto.importe.toFixed(
+                            2
+                          )} USD</p>
+                          <b> Precio Total: ${producto.total.toFixed(2)}</b>
+                          </div>`
   );
   $(`#${last}`).hide().fadeIn("slow");
 }

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+        
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+
+        <!-- Meta Tags -->
+        <meta name="keywords" content="Portal Futbol, portal, noticias, futbol, primera division, segunda division, libertadores, copa libertadores, IOSoccer, Sudamerica">
+        <meta name="description" content="Portal principal de IOSoccer Sudamerica. Equipos, calendario, resultados y tablas de posicion.">
+        <title>IOSoccer Sudamerica</title>
+    </head>
+    <body>
+        <header>
+            <div class="d-xs-block d-sm-none">   
+                <nav class="navbar navbar-dark bg-dark">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggler second-button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <div class="animated-icon2"><span></span><span></span><span></span><span></span></div>
+                            </button>
+                            <a class="navbar-brand" href="#">IOSoccer Sudamerica</a>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="bg-light shadow-3 p-4">
+                                <li class="btn btn-link btn-block border-bottom m-0"></li>><a class="active" href="./index.html">Home</a>
+                                <li class="btn btn-link btn-block border-bottom m-0"></li>><a href="pages/competencias.html">Competencias</a></li>
+                                <li class="btn btn-link btn-block border-bottom m-0"></li>><a href="pages/equipos.html">Equipos</a></li>
+                                <li class="btn btn-link btn-block border-bottom m-0"></li>><a href="pages/estadisticas.html">Estadisticas</a></li>
+                                <li class="btn btn-link btn-block border-bottom m-0"></li>><a href="pages/calendario.html">Calendario</a></li></li>
+                                <!-- Put here your menu items -->
+                            </ul>
+                
+                        </div --><!--/.navbar-collapse -->
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="d-none d-sm-block">
+                <div class="flex-container">
+                    <nav>
+                            <a class="active" href="./index.html">Home</a>
+                            <a href="./pages/competencias.html">Competencias</a>
+                            <a href="./pages/equipos.html">Equipos</a>
+                            <a href="./pages/estadisticas.html">Estadisticas</a>
+                            <a href="./pages/calendario.html">Calendario</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="flex-container">
+                <div id="title">
+                    <h1>IOSoccer Sudamerica</h1>
+                    <p>Portal dedicado a Futbol Sudamericano</p>
+                </div>
+            </div>
+
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="public/primera.webp" alt="Los Angeles" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>Primera Division</h3>
+                        <p>La primera division de la Liga Argentina</p>
+                    </div>   
+                </div>
+                <div class="carousel-item">
+                    <img src="public/segunda.webp" alt="Chicago" width="1100" height="500">
+                    <div class="carousel-caption">
+                    <h3>Segunda Division</h3>
+                    <p>La segunda division de la Liga Argentina</p>
+                    </div>   
+                </div>
+                <div class="carousel-item">
+                    <img src="public/libertadores.webp" alt="New York" width="1100" height="500">
+                    <div class="carousel-caption">
+                    <h3>Copa Libertadores</h3>
+                    <p>La Copa mas importante de Sudamerica</p>
+                    </div>   
+                </div>
+                </div>
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+
+            <div class="flex-container">
+                <div id="tournaments">
+                    <h2>Competencias</h2>
+                    <p><a href="pages/competencias/primera.html">Primera division</a></p>
+                    <p><a href="pages/competencias/segunda.html">Segunda division</a></p>
+                    <p><a href="pages/competencias/copa.html">Copa Libertadores</a></p>
+                </div>
+                <div id="title">
+                    <h2>Partidos de Hoy</h2>
+                    <ol>
+                        <li>
+                            <p>20:30hs River - Boca</p>
+                        </li>
+                        <li>
+                            <p>21:00hs Banfield - Lanus</p>
+                        </li>
+                        <li>
+                            <p>23:00hs Argentina - Brasil</p>
+                        </li>
+                    </ol>
+                </div>
+                <div id="scoreboard">
+                    <h2>Tabla Primera Division</h2>
+                    <table>
+                        <thead>
+                            <tr class="tableTitle">
+                                <td>Nombre</td>
+                                <td>PJ</td>
+                                <td>PTS</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>River Plate</td>
+                                <td>4</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>Boca Juniors</td>
+                                <td>4</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td>Racing Club</td>
+                                <td>4</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Banfield</td>
+                                <td>4</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="footer-container">
+                <div class="creditos"><p>Sitio web creado por Ivan Anzaldo</p></div>
+                <div class="social-media">
+                    <ul>
+                        <li><a href="https://www.instagram.com/anzaldoivan/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/in/ivan-anzaldo/" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://github.com/anzaldoivan" target="_blank">Github</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </body>
+</html>

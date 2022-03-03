@@ -1,0 +1,121 @@
+@import "components/footer";
+@import "components/calculator";
+
+@import "variables/variables";
+
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: rgb(255, 169, 139);
+  background: linear-gradient(
+    90deg,
+    rgba(126, 87, 194, 0.8) 1%,
+    rgba(95, 76, 129, 0.8) 50%,
+    rgba(126, 87, 194, 0.8) 99%
+  );
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-template-areas: "main" "footer";
+  grid-template-rows: 1fr 80px;
+}
+
+main {
+  background-color: #f8bbd0;
+  grid-area: main;
+}
+footer {
+  background-color: rgba(126, 87, 194, 0.8);
+  grid-area: footer;
+}
+
+h1 {
+  color: $color-header;
+}
+
+h2 {
+  color: rgb(204, 137, 13);
+}
+
+a {
+  text-decoration: none;
+  color: purple;
+}
+
+ul li {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+}
+
+.flex-container div {
+  text-align: center;
+  margin: 30px;
+  padding: 30px;
+  border: 2px solid rgba(0, 0, 0, 0.103);
+  background-color: rgba(255, 255, 255, 0.932);
+}
+
+.desktop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+}
+
+.desktop div {
+  text-align: center;
+  margin: 30px;
+  padding: 30px;
+  border: 2px solid rgba(0, 0, 0, 0.103);
+  background-color: rgba(255, 255, 255, 0.932);
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  padding: 10px;
+}
+
+.grid-container div {
+  text-align: center;
+  margin: 30px;
+  padding: 30px;
+  border: 2px solid rgba(0, 0, 0, 0.103);
+  background-color: rgba(255, 255, 255, 0.932);
+}
+
+@media (max-width: 767px) {
+  .primera {
+    grid-column: 1/3;
+  }
+}
+
+.copa {
+  grid-column: 1/3;
+}
+
+.about {
+  height: 100px;
+  background: #cccccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
