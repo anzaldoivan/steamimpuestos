@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Meta Tags -->
+    <meta name="keywords" content="Calculadora, Precios, IVA, Argentina, Impuestos, Steam, Juegos, Retenciones, Dolar">
+    <meta name="description" content="Calculadora de precios para juegos de Steam">
+    <title>Calculadora de Impuestos</title>
+    <script src="js/calculadora.js" defer></script>
+  </head>
+  <body>
+    <!-- Content -->
+    <section id="layout" class="container content">
+      <div class="column">
+        <div class="header"><h1 class="text-center">Calculadora de Impuestos para juegos de Steam</h1></div>
+          <div class="calculator">
+            <div class="calculatorContainer">
+            <div class="input-group">
+              <div class="inputType"><div class="inputTypeText">$</div></div>
+              <div class="inputPrice"><input id="price" inputmode="numeric" autocomplete="off" value="1200" class="calc-input form-control" name="precio"></div>
+            </div>
+            <div class="input-group">
+              <div class="inputType"><div class="inputTypeText">Descuento</div></div>
+              <div class="inputPrice"><input id="discount" inputmode="numeric" autocomplete="off" value="0" class="calc-input form-control" name="descuento"></div>
+            </div>
+            <div class="input-group">
+              <div class="inputType"><div class="inputTypeText">IVA</div></div>
+              <div class="inputPrice"><input id="iva" inputmode="numeric" autocomplete="off" value="21" class="calc-input form-control" name="IVA"></div>
+            </div>
+            <div class="input-group">
+              <div class="inputType"><div class="inputTypeText">Iimpuesto Pais</div></div>
+              <div class="inputPrice"><input id="taxpais" inputmode="numeric" autocomplete="off" value="8" class="calc-input form-control" name="impuestoPais"></div>
+            </div>
+            <div class="input-group">
+              <div class="inputType"><div class="inputTypeText">Retenciones</div></div>
+              <div class="inputPrice"><input id="taxretenciones" inputmode="numeric" autocomplete="off" value="35" class="calc-input form-control" name="retenciones"></div>
+            </div>
+            <button class="button" id="btnMain">Calcular Precio</button>
+            <button class="buttonSecondary" id="btnReset">Borrar Ultimo Elemento</button>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div id="list">
+
+        </div>
+      </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </body>
+</html>
