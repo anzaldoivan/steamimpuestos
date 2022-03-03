@@ -91,16 +91,21 @@ buttonReset.click(function () {
 function modificarContenedor() {
   productos = JSON.parse(localStorage.getItem("productos"));
   let last = Object.keys(productos).length;
-  list.append(
-    `<div id="${producto.ID}"><h3>Producto Calculado #${producto.ID}</h3>
-                          <p> Precio Base: ${producto.precioBase}</p>
-                          <p>  Descuento: ${producto.descuento}</p>
-                          <p> Importe en Resumen: ${producto.importe.toFixed(
-                            2
-                          )} USD</p>
-                          <b> Precio Total: ${producto.total.toFixed(2)}</b>
-                          </div>`
-  );
+  $.get(corsAnywhere + dolarOficial, function (respuesta, estado) {
+    if (estado === "success") {
+      list.append(
+        `<div id="${producto.ID}"><h3>Producto Calculado #${producto.ID}</h3>
+                                <p> Precio Base: ${producto.precioBase}</p>
+                                <p>  Descuento: ${producto.descuento}</p>
+                                <p> Dolar Oficial: ${respuesta.venta} USD</p>
+                                <b> Precio Total: ${producto.total.toFixed(
+                                  2
+                                )}</b>
+                                </div>`
+      );
+    }
+  });
+
   $(`#${last}`).hide().fadeIn("slow");
 }
 
