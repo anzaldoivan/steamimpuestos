@@ -11,14 +11,12 @@ const saveLocal = (id, value) => {
   preciosCalculados = JSON.parse(localStorage.getItem("productos"));
 };
 
-const getDolarOficial = () => {
-  $.get(dolarOficial, function (respuesta, estado) {
-    if (estado === "success") {
-      console.log(respuesta);
-      return respuesta;
-    }
-  });
-};
+async function getDolarOficial() {
+  const response = await fetch(dolarOficial);
+  // waits until the request completes...
+  console.log(response.json());
+  return response.json();
+}
 
 function calcularPorcentaje(valor) {
   if (valor == 0) return 1;
