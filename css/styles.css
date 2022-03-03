@@ -170,8 +170,12 @@ div {
   margin-right: -15px;
   margin-left: -15px; }
 
-.column h3,
-.column b,
+.column h3 {
+  color: white; }
+
+.column b {
+  color: white; }
+
 .column p {
   color: white; }
 
