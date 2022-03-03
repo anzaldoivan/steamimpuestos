@@ -170,12 +170,8 @@ div {
   margin-right: -15px;
   margin-left: -15px; }
 
-.column h3 {
-  color: white; }
-
-.column b {
-  color: white; }
-
+.column h3,
+.column b,
 .column p {
   color: white; }
 
@@ -272,3 +268,6 @@ ul li {
   display: flex;
   align-items: center;
   justify-content: center; }
+
+.whiteTextOverride {
+  color: white !important; }
