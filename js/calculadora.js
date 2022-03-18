@@ -1,7 +1,7 @@
 let button = $("#btnMain");
 let buttonReset = $("#btnReset");
 let list = $("#list");
-const corsProxy = "https://thingproxy.freeboard.io/fetch/";
+const corsProxy = "https://crossorigin.me/";
 const dolarAPI = "https://api-dolar-argentina.herokuapp.com";
 const dolarOficial = dolarAPI + "/api/dolaroficial";
 const dolarTarjeta = dolarAPI + "/api/dolarturista";
