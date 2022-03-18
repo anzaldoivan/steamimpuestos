@@ -1,9 +1,10 @@
 let button = $("#btnMain");
 let buttonReset = $("#btnReset");
 let list = $("#list");
-const corsAnywhere = "https://cors-anywhere.herokuapp.com/";
 const dolarAPI = "https://api-dolar-argentina.herokuapp.com";
 const dolarOficial = dolarAPI + "/api/dolaroficial";
+const dolarTarjeta = dolarAPI + "/api/dolarturista";
+const dolarBlue = dolarAPI + "/api/dolarblue";
 let preciosCalculados = [];
 let contenedor;
 
@@ -12,15 +13,40 @@ const saveLocal = (id, value) => {
   preciosCalculados = JSON.parse(localStorage.getItem("productos"));
 };
 
-async function getDolarOficial() {
-  const response = await fetch(corsAnywhere + dolarOficial, {
-    method: "GET",
-    headers: new Headers({
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-    }),
-  });
-  return response.json();
+async function getDolar(tipoDolar) {
+  try {
+    const response = await fetch(tipoDolar, {
+      method: "GET",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      }),
+    });
+    return response.json();
+  } catch {
+    console.log("Fetch failed. Returning fallback");
+    let fallback;
+    if (tipoDolar == "/api/dolaroficial")
+      fallback = {
+        fecha: "2022/03/18 22:58:45",
+        compra: "108.93",
+        venta: "114.93",
+      };
+    if (tipoDolar == "/api/dolarturista")
+      fallback = {
+        fecha: "2022/03/18 23:38:52",
+        compra: "No cotiza",
+        venta: "189.63",
+      };
+
+    if (tipoDolar == "/api/dolarblue")
+      fallback = {
+        fecha: "2022/03/18 23:40:07",
+        compra: "199.50",
+        venta: "202.50",
+      };
+    return fallback;
+  }
 }
 
 function calcularPorcentaje(valor) {
@@ -59,7 +85,7 @@ async function calculate() {
   let iva = calcularPorcentaje(Number(document.getElementById("iva").value));
   let taxpais = Number(document.getElementById("taxpais").value);
   let taxretenciones = Number(document.getElementById("taxretenciones").value);
-  let dolarofi = await getDolarOficial();
+  let dolarofi = await getDolar(dolarOficial);
   let ID = Number(preciosCalculados.length) + 1;
   producto = {
     ID: ID,
@@ -76,6 +102,17 @@ async function calculate() {
   saveLocal("productos", JSON.stringify(preciosCalculados));
 }
 
+// Set Text
+async function setText() {
+  console.log(await getDolar(dolarOficial));
+  const dolOfi = await getDolar(dolarOficial);
+  const dolTar = await getDolar(dolarTarjeta);
+  const dolBlue = await getDolar(dolarBlue);
+  document.getElementById("dolOfi").textContent = `Venta: ${dolOfi.venta}`;
+  document.getElementById("dolTar").textContent = `Venta: ${dolTar.venta}`;
+  document.getElementById("dolBlue").textContent = `Venta: ${dolBlue.venta}`;
+}
+
 button.click(async function () {
   contenedor = document.createElement("div");
   console.log("Click");
@@ -87,6 +124,9 @@ button.click(async function () {
 buttonReset.click(function () {
   removeLastElement();
 });
+
+// Run on start
+setText();
 
 function modificarContenedor() {
   productos = JSON.parse(localStorage.getItem("productos"));

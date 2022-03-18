@@ -1,0 +1,53 @@
+div {
+  display: block;
+}
+
+.currencies {
+  display: flex;
+  width: 100%;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  font-family: sans-serif;
+
+  h2 {
+    color: rgb(3, 3, 3);
+    text-align: center;
+    margin: 0 0.25rem 0 0.5rem;
+  }
+
+  body {
+    color: #333;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .currency-list {
+    display: grid;
+    margin-bottom: 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 1.5rem;
+  }
+
+  ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+  }
+
+  li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    background-color: #41444723;
+    border: 1px solid #ced4da48;
+    border-radius: 0.25rem;
+  }
+}

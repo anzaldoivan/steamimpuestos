@@ -25,8 +25,31 @@
     <section id="layout" class="container content">
       <div class="column">
         <div class="header"><h1 class="text-center">Calculadora de Impuestos para juegos de Steam</h1></div>
-          <div class="calculator">
-            <div class="calculatorContainer">
+        <div class="currencies">
+          <ul class="currency-list">
+            <li>
+              <h2>Dólar Oficial</h2>
+              <p>
+                <strong id="dolOfi">Venta: 100</strong>
+              </p>
+            </li>
+            <li>
+              <h2>Dólar Tarjeta</h2>
+              <p>
+                <strong id="dolTar">Venta: 100</strong>
+              </p>
+            </li>
+            <li>
+              <h2>Dólar Blue</h2>
+              <p>
+                <strong id="dolBlue">Venta: 100</strong>
+              </p>
+            </li>
+          </ul>
+          
+        </div>
+        <div class="calculator">
+          <div class="calculatorContainer">
             <div class="input-group">
               <div class="inputType"><div class="inputTypeText">$</div></div>
               <div class="inputPrice"><input id="price" inputmode="numeric" autocomplete="off" value="1200" class="calc-input form-control" name="precio"></div>
@@ -49,7 +72,7 @@
             </div>
             <button class="button" id="btnMain">Calcular Precio</button>
             <button class="buttonSecondary" id="btnReset">Borrar Ultimo Elemento</button>
-          </div>
+            </div>
         </div>
       </div>
       <div class="column">
@@ -64,7 +87,6 @@
           <div class="creditos"><p>Sitio web creado por Ivan Anzaldo</p></div>
           <div class="social-media">
               <ul>
-                  <li><a href="https://www.instagram.com/anzaldoivan/" target="_blank">Instagram</a></li>
                   <li><a href="https://www.linkedin.com/in/ivan-anzaldo/" target="_blank">LinkedIn</a></li>
                   <li><a href="https://github.com/anzaldoivan" target="_blank">Github</a></li>
               </ul>
