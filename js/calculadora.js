@@ -26,20 +26,24 @@ async function getDolar(tipoDolar) {
   } catch {
     console.log("Fetch failed. Returning fallback");
     let fallback;
-    if (tipoDolar == "/api/dolaroficial")
+    if (
+      tipoDolar == "https://api-dolar-argentina.herokuapp.com/api/dolaroficial"
+    )
       fallback = {
         fecha: "2022/03/18 22:58:45",
         compra: "108.93",
         venta: "114.93",
       };
-    if (tipoDolar == "/api/dolarturista")
+    if (
+      tipoDolar == "https://api-dolar-argentina.herokuapp.com/api/dolarturista"
+    )
       fallback = {
         fecha: "2022/03/18 23:38:52",
         compra: "No cotiza",
         venta: "189.63",
       };
 
-    if (tipoDolar == "/api/dolarblue")
+    if (tipoDolar == "https://api-dolar-argentina.herokuapp.com/api/dolarblue")
       fallback = {
         fecha: "2022/03/18 23:40:07",
         compra: "199.50",
