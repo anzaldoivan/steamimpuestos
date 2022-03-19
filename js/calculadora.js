@@ -21,6 +21,7 @@ async function getDolar(tipoDolar) {
       headers: new Headers({
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
       }),
     });
     return response.json();
