@@ -35,11 +35,13 @@ div {
 }
 
 .input-group {
+  align-items: center;
+  justify-content: center;
   position: relative;
   display: flex;
+  flex-basis: content;
   flex-wrap: wrap;
   align-items: stretch;
-  width: 100%;
 }
 
 .inputType {
@@ -63,10 +65,17 @@ div {
   border-radius: 0.25rem;
 }
 
+.header {
+  width: 100%;
+}
+
+.calculator {
+  width: 50%;
+}
+
 .header,
 .calculator {
   position: relative;
-  width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   padding-top: 15px;
@@ -92,7 +101,7 @@ div {
   border: 2px dashed #ce464d5b;
 }
 
-.buttonSecondary:hover {
+.buttonSecondary:hover:enabled {
   background: #a7393f6b;
   color: #ffffff;
 }

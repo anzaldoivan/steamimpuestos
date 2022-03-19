@@ -64,7 +64,6 @@ footer {
     color: white;
     height: 50px;
     display: flex;
-    align-items: center;
     justify-content: center; }
   footer th {
     background-color: white;
@@ -111,11 +110,13 @@ div {
   text-align: center !important; }
 
 .input-group {
+  align-items: center;
+  justify-content: center;
   position: relative;
   display: flex;
+  flex-basis: content;
   flex-wrap: wrap;
-  align-items: stretch;
-  width: 100%; }
+  align-items: stretch; }
 
 .inputType {
   margin-right: -1px; }
@@ -136,10 +137,15 @@ div {
   border: 1px solid #ced4da;
   border-radius: 0.25rem; }
 
+.header {
+  width: 100%; }
+
+.calculator {
+  width: 50%; }
+
 .header,
 .calculator {
   position: relative;
-  width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   padding-top: 15px;
@@ -160,7 +166,7 @@ div {
 .buttonSecondary {
   border: 2px dashed #ce464d5b; }
 
-.buttonSecondary:hover {
+.buttonSecondary:hover:enabled {
   background: #a7393f6b;
   color: #ffffff; }
 
@@ -187,7 +193,7 @@ div {
   .currencies .currency-list {
     display: grid;
     margin-bottom: 2rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 1.5rem; }
   .currencies ul {
     display: block;
@@ -203,12 +209,39 @@ div {
     background-color: #41444723;
     border: 1px solid #ced4da48;
     border-radius: 0.25rem; }
+  .currencies ul li {
+    overflow: visible;
+    list-style-type: none; }
 
-.column .column {
+.listContainer {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  position: relative;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-top: 10px;
+  padding-bottom: 15px; }
+
+.list {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px; }
+
+.ProductText {
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 0.25rem !important; }
 
 .carousel-inner img {
   width: 100%;

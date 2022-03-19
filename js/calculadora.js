@@ -137,7 +137,9 @@ function modificarContenedor() {
   productos = JSON.parse(localStorage.getItem("productos"));
   let last = Object.keys(productos).length;
   list.append(
-    `<div id="${producto.ID}"><h3>Producto Calculado #${producto.ID}</h3>
+    `<div id="${producto.ID}" class="ProductText"><h3>Producto Calculado #${
+      producto.ID
+    }</h3>
                           <p> Precio Base: ${producto.precioBase}</p>
                           <p>  Descuento: ${producto.descuento}</p>
                           <p> Importe en Resumen: ${producto.importe.toFixed(
@@ -146,6 +148,7 @@ function modificarContenedor() {
                           <b> Precio Total: ${producto.total.toFixed(2)}</b>
                           </div>`
   );
+  $("#btnReset").prop("disabled", false);
   $(`#${last}`).hide().fadeIn("slow");
 }
 
@@ -159,5 +162,6 @@ function removeLastElement() {
     $(`#${last}`).remove();
   });
   preciosCalculados.pop();
+  if (Object.keys(productos).length == 1) $("#btnReset").prop("disabled", true);
   saveLocal("productos", JSON.stringify(preciosCalculados));
 }

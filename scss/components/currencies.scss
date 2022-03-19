@@ -29,7 +29,7 @@ div {
   .currency-list {
     display: grid;
     margin-bottom: 2rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 1.5rem;
   }
 
@@ -49,5 +49,10 @@ div {
     background-color: #41444723;
     border: 1px solid #ced4da48;
     border-radius: 0.25rem;
+  }
+
+  ul li {
+    overflow: visible;
+    list-style-type: none;
   }
 }
