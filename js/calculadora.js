@@ -61,8 +61,8 @@ function calcularPorcentaje(valor) {
 }
 
 function calcularDescuento(valor) {
-  if (valor == 0) return 1;
-  valor /= 100;
+  if (valor == 0 || isNaN(valor)) return 1;
+  valor = (100 - valor) / 100;
   return parseFloat(valor);
 }
 
@@ -70,9 +70,9 @@ function calcularImpuestos(base, descuento, IVA, impuestoPais, retencion) {
   descuento = calcularDescuento(descuento);
   impuestoPais = calcularPorcentaje(impuestoPais);
   retencion = calcularPorcentaje(retencion);
-  let total = base * descuento * IVA * impuestoPais * retencion;
+  let total = base * IVA * impuestoPais * retencion * descuento;
   console.log(
-    `Calculo: ${base}*${descuento}*${IVA}*${impuestoPais}*${retencion} = ${total}`
+    `Calculo: ${base}*${IVA}*${impuestoPais}*${retencion}*${descuento} = ${total}`
   );
   return total;
 }
@@ -136,12 +136,15 @@ setText();
 function modificarContenedor() {
   productos = JSON.parse(localStorage.getItem("productos"));
   let last = Object.keys(productos).length;
+  let discount = producto.descuento;
+  let discountText = `${discount}%`;
+  if (isNaN(discount)) discountText = "Descuento Invalido";
   list.append(
     `<div id="${producto.ID}" class="ProductText"><h3>Producto Calculado #${
       producto.ID
     }</h3>
                           <p> Precio Base: ${producto.precioBase}</p>
-                          <p>  Descuento: ${producto.descuento}</p>
+                          <p>  Descuento: ${discountText}</p>
                           <p> Importe en Resumen: ${producto.importe.toFixed(
                             2
                           )} USD</p>
