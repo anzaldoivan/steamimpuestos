@@ -139,6 +139,7 @@ function modificarContenedor() {
   let discount = producto.descuento;
   let discountText = `${discount}%`;
   if (isNaN(discount)) discountText = "Descuento Invalido";
+  if (discount == 0) discountText = "Ninguno";
   list.append(
     `<div id="${producto.ID}" class="ProductText"><h3>Producto Calculado #${
       producto.ID
